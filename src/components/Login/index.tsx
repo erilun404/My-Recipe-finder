@@ -28,7 +28,7 @@ const LogIn = () => {
       }
     }
   };
-  console.log("Try my app todo so, log in as: John, Jimmy or Ringo");
+  console.log("Try my app, log in as: John, Jimmy or Ringo");
   return (
     <div className="flex justify-center items-center w-[350] min-h-[80hv] pt-20">
       <div className="flex justify-center flex-col items-center shadow-[#fbcad1] border-2 border-[#fbcad1] w-80 bg-[#fbc4cc] rounded-lg">
