@@ -9,7 +9,7 @@ import { RecipeType } from "@/utils/types";
 import { CategoryType } from "@/utils/types";
 import Link from "next/link";
 
-const category = ({ children }: { children: React.ReactNode }) => {
+const category = () => {
   const { user } = useUserContext();
   const [categories, setCategories] = useState<CategoryType[]>([]);
 
@@ -21,6 +21,7 @@ const category = ({ children }: { children: React.ReactNode }) => {
             `https://www.themealdb.com/api/json/v1/1/categories.php`
           );
           const data = await response.json();
+          setCategories(data.categories);
         }
       } catch (error) {
         console.log(error);
@@ -59,7 +60,6 @@ const category = ({ children }: { children: React.ReactNode }) => {
             <p>Loading categories...</p>
           )}
         </div>
-        {children}
       </div>
     </>
   );
