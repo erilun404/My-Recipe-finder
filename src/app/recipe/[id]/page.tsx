@@ -84,6 +84,12 @@ const recipePage = ({ params }: { params: { id: string } }) => {
     user && localStorage.setItem(user.name, JSON.stringify(user));
   }, [user?.savedRecipes]);
 
+  if (!recipe) {
+    return (
+      <p>Loading recipe</p>
+    )
+  }
+
   return (
     <div className="flex flex-col bg-[#fbc4c6] rounded-md shadow-md py-5 md:max-w-2xl mx-auto mt-10">
       <h2 className="flex items-center justify-center">Recipe page</h2>
