@@ -28,7 +28,7 @@ const recipePage = ({ params }: { params: { id: string } }) => {
       }
     };
     fetchRecipes();
-  }, []);
+  }, [id]);
 
   const handleSaveRecipe = () => {
     if (user) {
@@ -59,6 +59,7 @@ const recipePage = ({ params }: { params: { id: string } }) => {
   };
 
   const getIngredients = () => {
+    if (!recipe) return [];
     const ingredients = [];
     for (let i = 1; i <= 20; i++) {
       const ingredient = recipe[`strIngredient${i}`];
@@ -111,7 +112,7 @@ const recipePage = ({ params }: { params: { id: string } }) => {
 
           <h2>Ingredients:</h2>
           <ul className="list-disc">
-            {getIngredients(recipe).map((item, index) => (
+            {getIngredients().map((item, index) => (
               <li key={index} className="font-medium">
                 {item.measure} {item.ingredient}
               </li>
