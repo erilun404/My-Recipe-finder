@@ -4,8 +4,7 @@ import { UserContextType } from "@/utils/types";
 import Link from "next/link";
 
 const Menu = () => {
-  const { user, setUser } =
-    useUserContext() as UserContextType;
+  const { user, setUser } = useUserContext() as UserContextType;
   return (
     <>
       <nav className="h-[10vh] w-full flex items-center border-b px-5 lg:px-14 justify-between">

@@ -5,10 +5,15 @@ import Link from "next/link";
 import { useUserContext } from "@/utils/contexts";
 import { CategoryType } from "@/utils/types";
 
-
 const category = () => {
-  const { user } = useUserContext();
+  const { user, setUser } = useUserContext();
   const [categories, setCategories] = useState<CategoryType[]>([]);
+
+  const handleClick = (userSelectedCategory: string) => {
+    if (user && setUser) {
+      setUser({ ...user, category: userSelectedCategory });
+    }
+  };
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -29,7 +34,7 @@ const category = () => {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col p-7">
         <h2 className="font-bold text-center p-5">Category page</h2>
         <p>Your favorite category: {user?.category}</p>
         <div className="flex flex-wrap gap-6 justify-center mt-10 ">
@@ -50,6 +55,14 @@ const category = () => {
                     <p>{category.strCategory}</p>
                   </div>
                 </Link>
+                <div className="flex justify-center">
+                  <button
+                    className="bg-[#fccf4f] px-20 py-1 m-1 rounded-sm"
+                    onClick={() => handleClick(category.strCategory)}
+                  >
+                    Save as category
+                  </button>
+                </div>
               </div>
             ))
           ) : (

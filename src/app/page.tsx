@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       {user && (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center p-7">
           <h2 className="font-bold p-5">Welcome {user.name}</h2>
           <h2>Your favorite category of food is {user.category}</h2>
 

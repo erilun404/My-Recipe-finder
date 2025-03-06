@@ -39,7 +39,6 @@ const LogIn = () => {
           Enter user name
         </label>
 
-
         <input
           className="max-w-[200px] border-[1px] rounded-sm border-black p-1"
           id="user-input"

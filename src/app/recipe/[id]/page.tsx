@@ -79,7 +79,6 @@ const recipePage = ({ params }: { params: { id: string } }) => {
       console.log("update saved recipes:", user?.savedRecipes);
       localStorage.setItem(user.name, JSON.stringify(user));
     }
-
   }, [user?.savedRecipes]);
 
   return (

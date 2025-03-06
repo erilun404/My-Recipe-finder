@@ -9,8 +9,7 @@ import Link from "next/link";
 const profile = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [recipe, setRecipe] = useState<RecipeType | null>(null);
-  const { user } =
-    useUserContext() as UserContextType;
+  const { user } = useUserContext() as UserContextType;
   const [favoriteRecipes, setFavoriteRecipes] = useState<RecipeType[]>([]);
 
   useEffect(() => {
