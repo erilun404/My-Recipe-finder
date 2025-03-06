@@ -1,13 +1,10 @@
 "use client";
-import LogIn from "@/components/Login";
-import { useUserContext } from "@/utils/contexts";
-import { UserContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
-import { UserType } from "@/utils/types";
-import { createConnection } from "net";
-import { RecipeType } from "@/utils/types";
-import { CategoryType } from "@/utils/types";
 import Link from "next/link";
+
+import { useUserContext } from "@/utils/contexts";
+import { CategoryType } from "@/utils/types";
+
 
 const category = () => {
   const { user } = useUserContext();
@@ -43,7 +40,6 @@ const category = () => {
                 key={category.idCategory}
               >
                 {" "}
-                {/* Add a unique key */}
                 <Link href={`/category/${category.strCategory}`}>
                   <div className="flex flex-col items-center">
                     <img

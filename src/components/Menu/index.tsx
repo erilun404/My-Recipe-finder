@@ -4,7 +4,7 @@ import { UserContextType } from "@/utils/types";
 import Link from "next/link";
 
 const Menu = () => {
-  const { user, setUser, saveRecipe, removeRecipe } =
+  const { user, setUser } =
     useUserContext() as UserContextType;
   return (
     <>

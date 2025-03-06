@@ -1,7 +1,6 @@
 "use client";
+
 import Image from "next/image";
-import { useUserContext } from "@/utils/contexts";
-import { UserContextType, UserType } from "@/utils/types";
 import RecipeImg from "../../img/logo2.svg";
 
 const Header = () => {

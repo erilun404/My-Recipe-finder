@@ -1,11 +1,10 @@
 "use client";
+import React from "react";
+import { useEffect, useState } from "react";
+import { FaHeart } from "react-icons/fa";
 
 import { RecipeType } from "@/utils/types";
-import { useEffect, useState } from "react";
 import { useUserContext } from "@/utils/contexts";
-import { UserContextType } from "@/utils/types";
-import React from "react";
-import { FaHeart } from "react-icons/fa";
 
 const recipePage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -76,19 +75,12 @@ const recipePage = ({ params }: { params: { id: string } }) => {
   };
 
   useEffect(() => {
-    console.log(localStorage);
-    console.log("update saved recipes:", user?.savedRecipes);
-    console.log(
-      "värdet i user, name:" + user?.name + "category:" + user?.category
-    );
-    user && localStorage.setItem(user.name, JSON.stringify(user));
-  }, [user?.savedRecipes]);
+    if (user) {
+      console.log("update saved recipes:", user?.savedRecipes);
+      localStorage.setItem(user.name, JSON.stringify(user));
+    }
 
-  if (!recipe) {
-    return (
-      <p>Loading recipe</p>
-    )
-  }
+  }, [user?.savedRecipes]);
 
   return (
     <div className="flex flex-col bg-[#fbc4c6] rounded-md shadow-md py-5 md:max-w-2xl mx-auto mt-10">

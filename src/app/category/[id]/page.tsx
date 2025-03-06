@@ -1,13 +1,13 @@
 "use client";
 import { useUserContext } from "@/utils/contexts";
-import { RecipeType, UserContextType } from "@/utils/types";
+import { RecipeType } from "@/utils/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const categoryPage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
-  const { user, saveRecipe, removeRecipe } = useUserContext();
-  const [recipes, setRecipes] = useState<RecipeType | null>(null);
+  const { user } = useUserContext();
+  const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
 
   useEffect(() => {
     const fetchRecipes = async () => {

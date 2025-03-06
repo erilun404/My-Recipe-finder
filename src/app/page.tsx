@@ -1,13 +1,12 @@
 "use client";
 import { useUserContext } from "@/utils/contexts";
-import { UserContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { RecipeType } from "@/utils/types";
 import Link from "next/link";
 
 export default function Home() {
   const { user } = useUserContext();
-  const [recipes, setRecipes] = useState<RecipeType | null>(null);
+  const [recipes, setRecipes] = useState<RecipeType[] | null>(null);
 
   useEffect(() => {
     const fetchRecipes = async () => {
